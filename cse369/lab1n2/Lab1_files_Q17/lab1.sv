@@ -26,13 +26,13 @@ module lab1 (
   /////////////////////////////////
 
   // TODO: connect an inverter between SW2 and LEDR4
-
+	assign LEDR[4] = ~SW[2];
 
   // TODO: connect a 2nd inverter between LEDR4 and LEDR5
-
+	assign LEDR[5] = ~LEDR[4];
 
   // TODO: connect a 2-input NOR gate between two unused SW and an unused LEDR
-
+	assign LEDR[6] = ~(SW[3] | SW[4]);
 
   /////////////////////////////////
   // NO CHANGES NEEDED
