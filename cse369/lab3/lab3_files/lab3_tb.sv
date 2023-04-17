@@ -1,6 +1,6 @@
 module lab3_tb();
-    logic [3:0] SW;
-    logic [1:0] LEDR;
+    logic [9:0] SW;
+    logic [9:0] LEDR;
 
     lab3 dut (.LEDR, .SW);
 
