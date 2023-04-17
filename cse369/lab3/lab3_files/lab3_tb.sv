@@ -2,6 +2,8 @@ module lab3_tb();
     logic [3:0] SW;
     logic [1:0] LEDR;
 
+    lab3 dut (.LEDR, .SW);
+
     integer i;
     initial begin
         for(i = 0; i < 16; i++) begin
