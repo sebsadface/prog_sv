@@ -3,12 +3,12 @@ module lab3 (
     output logic [1:0] LEDR
 );
 
-    logic U, P, C, MARK, DISCOUNTED, STOLEN;
+    logic U, P, C, M, DISCOUNTED, STOLEN;
 
     assign U = SW[0];
     assign P = SW[1];
     assign C = SW[2];
-    assign MARK = SW[3];
+    assign M = SW[3];
     assign DISCOUNTED = P | (C & U);
     assign STOLEN = ~(U | M | C) | (U & ~(P | M));
     assign LEDR[0] = DISCOUNTED;
