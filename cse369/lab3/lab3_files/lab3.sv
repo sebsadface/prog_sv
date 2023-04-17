@@ -1,7 +1,7 @@
 module lab3 (
     input logic [3:0] SW,
     output logic [1:0] LEDR
-);
+    );
 
     logic U, P, C, M, DISCOUNTED, STOLEN;
 
