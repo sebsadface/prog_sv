@@ -8,8 +8,8 @@ logic [3:0] SW0, SW1;
 assign SW0 = SW[3:0];
 assign SW1 = SW[7:4];
 
-seg7 H0 (.bcd(SW0), .leds(HEX0));
+seg7 H0 (.bcd(SW0), .leds(~HEX0));
 
-seg7 H1 (.bcd(SW1), .leds(HEX1));
+seg7 H1 (.bcd(SW1), .leds(~HEX1));
     
 endmodule
