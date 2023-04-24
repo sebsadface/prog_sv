@@ -3,8 +3,8 @@ module lab4 (
     input logic [9:0] SW
 );
 
-seg7 H0 (.bcd(~SW[3:0]), .leds(HEX0[6:0]));
+seg7 H0 (.[3:0]bcd(~[3:0]SW), .[6:0]leds([6:0]HEX0));
 
-seg7 H1 (.bcd(~SW[4:7]), .leds(HEX1[6:0]));
+seg7 H1 (.[3:0]bcd(~[4:7]SW), .[6:0]leds([6:0]HEX1));
     
 endmodule
