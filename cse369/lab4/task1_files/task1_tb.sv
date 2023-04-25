@@ -6,8 +6,15 @@ module task1_tb();
 
     integer i;
     initial begin
-        for(i = 0; i < 256; i++) begin
-            SW[7:0] = i; #10;
+        for(i = 0; i < 16; i++) begin
+            SW[3:0] = i; #10;
+        end
+    end
+
+    integer i;
+    initial begin
+        for(i = 0; i < 16; i++) begin
+            SW[7:4] = i; #10;
         end
     end
 
