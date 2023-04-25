@@ -1,7 +1,7 @@
 module lab4 (
     input logic [9:0] SW,
     output logic [9:0] LEDR,
-    output logic [6:0] HEX0, HEX1, HEX3, HEX4, HEX5
+    output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5
     );
 
     lab3 STATUS (.SW(SW), .LEDR(LEDR));
