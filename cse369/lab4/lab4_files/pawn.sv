@@ -43,12 +43,7 @@ module pawn (
       3'b110: leds0 = 7'b0000110; // E
 
 
-      default: leds0 = 7'bX;
-      default: leds1 = 7'bX;
-      default: leds2 = 7'bX;
-      default: leds3 = 7'bX;
-      default: leds4 = 7'bX;
-      default: leds5 = 7'bX;
+      default: leds = 7'bX;
     endcase
   end
-endmodule  // seg7
+endmodule  // pawn
