@@ -6,6 +6,7 @@ vlib work
 #     their own "vlog" line below.
 vlog "./task1.sv"
 vlog "./task1_tb.sv"
+vlog "./seg7.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
