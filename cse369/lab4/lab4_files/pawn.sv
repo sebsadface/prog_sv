@@ -1,6 +1,6 @@
 module pawn (
   input  logic [2:0] upc,
-  output logic [6:0] leds0, leds1, leds2, leds3, leds4, leds5,
+  output logic [6:0] leds0, leds1, leds2, leds3, leds4, leds5
   );
 
   always_comb begin
