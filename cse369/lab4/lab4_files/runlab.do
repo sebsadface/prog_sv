@@ -6,6 +6,8 @@ vlib work
 #     their own "vlog" line below.
 vlog "./lab4.sv"
 vlog "./lab4_tb.sv"
+vlog "./lab3.sv"
+vlog "./pawn.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
