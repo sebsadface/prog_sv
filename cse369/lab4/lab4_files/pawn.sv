@@ -9,7 +9,7 @@ module pawn (
       3'b000: begin 
         leds5 = 7'b1111111;
         leds4 = 7'b0010010; // S
-        leds3 = 7'b1001000; // A
+        leds3 = 7'b0001000; // A
         leds2 = 7'b0001110; // F
         leds1 = 7'b0000110; // E
         leds0 = 7'b1111111;
@@ -34,7 +34,7 @@ module pawn (
       end
 
       3'b100: begin 
-      leds5 = 7'b1001000; // A
+      leds5 = 7'b0001000; // A
       leds4 = 7'b0001100; // P
       leds3 = 7'b0001100; // P
       leds2 = 7'b1000111; // L
@@ -47,7 +47,7 @@ module pawn (
         leds4 = 7'b1000110; // C
         leds3 = 7'b1000000; // O
         leds2 = 7'b0001100; // P
-        leds1 = 7'b0110001; // Y
+        leds1 = 7'b0010001; // Y
         leds0 = 7'b1111111;
       end
 
