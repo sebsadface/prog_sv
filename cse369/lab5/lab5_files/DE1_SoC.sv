@@ -14,13 +14,16 @@ module DE1_SoC #(
   clock_divider cdiv (.clock(CLOCK_50), .divided_clocks(clk));
 
   // Hook up FSM inputs and outputs.
-  logic  reset, w, out;
+  logic  reset, w1, w0;
+  logic [2:0] out;
   assign reset = ~KEY[0];    // Reset when KEY[0] is pressed.
-  assign w = ~KEY[1];
+  assign w1 = SW[1];
+  assign w0 = SW[0];
 
-  simpleFSM fsm (.clk(clk[whichClock]), .reset, .w, .out);
+
+  runwayLights rwl (.clk(clk[whichClock]), .reset, .w1, .w0, .out);
 
   // Show signals on LEDRs so we can see what is happening.
-  assign LEDR = {clk[whichClock], 1'b0, reset, 2'b0, out};
+  assign LEDR = {clk[whichClock],reset , 1'b0, out[2], out[1], out[0]};
 
 endmodule  // DE1_SoC
