@@ -1,4 +1,4 @@
-// Testbench for simpleFSM
+ // Testbench for simpleFSM
 module simpleFSM_tb ();
   logic clk, reset, w;
   logic out;
