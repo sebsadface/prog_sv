@@ -20,10 +20,9 @@ module DE1_SoC #(
   assign w1 = SW[1];
   assign w0 = SW[0];
 
-
   runwayLights rwl (.clk(clk[whichClock]), .reset, .w1, .w0, .out);
 
   // Show signals on LEDRs so we can see what is happening.
-  assign LEDR = {clk[whichClock],reset , 1'b0, out[2], out[1], out[0]};
+  assign LEDR = {clk[whichClock], reset, 1'b0, out[2], out[1], out[0]};
 
 endmodule  // DE1_SoC
