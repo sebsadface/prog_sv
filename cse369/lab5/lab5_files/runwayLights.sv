@@ -7,7 +7,7 @@ module runwayLights (
   // An enum is a straightforward way to assign clear names to our FSM states
   // while also being able to specify the bit representation of each state.
   // ps = "present state", ns = "next state".
-  enum logic [1:0] {S101 = 3'b101, S001 = 3'b001, S010 = 3'b010, S100 = 3'b100} ps, ns;
+  enum logic [2:0] {S101 = 3'b101, S001 = 3'b001, S010 = 3'b010, S100 = 3'b100} ps, ns;
   
   // Runway lights Next State Logic
   always_comb
