@@ -1,7 +1,7 @@
  // Testbench for simpleFSM
 module runwayLights_tb ();
     logic clk, reset, w1, w0;
-    logic out;
+    logic [2:0] out;
 
   runwayLights dut (.clk, .reset, .w1, .w0, .out);
 
