@@ -1,6 +1,6 @@
 module runwayLights (
     input logic clk, reset, w1, w0, 
-    output logic out
+    output logic [2:0] out
 );
 
   // State Encoding and Variables
