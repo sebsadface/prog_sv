@@ -1,4 +1,4 @@
- // Testbench for simpleFSM
+ // Testbench for runwayLights
 module runwayLights_tb ();
     logic clk, reset, w1, w0;
     logic [2:0] out;
@@ -14,8 +14,6 @@ module runwayLights_tb ();
 
   // Set up the inputs to the design. Each line is a clock cycle.
   initial begin
-    // Defining ALL input signals at t = 0 will avoid red (undefined) signals
-    // in your simulation.
     reset <= 1; w1 <= 0; w0 <= 0; @(posedge clk); 
     reset <= 0; w1 <= 0; w0 <= 0; @(posedge clk); // 0 0 101
                                   @(posedge clk); // 0 0 010
@@ -31,4 +29,4 @@ module runwayLights_tb ();
                 w1 <= 0; w0 <= 0; @(posedge clk); // 0 0 100
     $stop;  // pause the simulation
   end
-endmodule  // simpleFSM_tb
+endmodule  // runwayLights_tb
