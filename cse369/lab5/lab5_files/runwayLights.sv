@@ -10,27 +10,22 @@ module runwayLights (
   // Runway lights Next State Logic
   always_comb
     case (ps)
-        S101: if (reset)            ns = S101;
-              else if (~(w1 | w0))  ns = S010;
+        S101: if (~(w1 | w0))       ns = S010;
               else if (~w1 & w0)    ns = S001;
               else if (w1 & ~w0)    ns = S100;
-              else if (reset)       ns = S101;
               else                  ns = S101;
-        S001: if (reset)            ns = S101;
-              else if (~(w1 | w0))  ns = S101;
+        S001: if (~(w1 | w0))       ns = S101;
               else if (~w1 & w0)    ns = S010;
               else if (w1 & ~w0)    ns = S100;
-              else                  ns = S001;
-        S010: if (reset)            ns = S101;
-              if (~(w1 | w0))       ns = S101;
+              else                  ns = S101;
+        S010: if (~(w1 | w0))       ns = S101;
               else if (~w1 & w0)    ns = S100;
               else if (w1 & ~w0)    ns = S001;
-              else                  ns = S010;
-        S100: if (reset)            ns = S101;
-              if (~(w1 | w0))       ns = S010;
+              else                  ns = S101;
+        S100: if (~(w1 | w0))       ns = S010;
               else if (~w1 & w0)    ns = S001;
               else if (w1 & ~w0)    ns = S010;
-              else                  ns = S100;
+              else                  ns = S101;
         default:                    ns = ps;
     endcase
 
