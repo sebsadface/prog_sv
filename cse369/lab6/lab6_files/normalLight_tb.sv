@@ -2,7 +2,7 @@ module normalLight_tb ();
   logic clk, reset, L, R, NL, NR;
   logic lightOn;
 
-  normalLight dut (.clk, .reset, .L, .R, .NL, .NR, .LightOn);
+  normalLight dut (.clk, .reset, .L, .R, .NL, .NR, .lightOn);
 
   // Set up the clock
   parameter CLOCK_PERIOD=100;
