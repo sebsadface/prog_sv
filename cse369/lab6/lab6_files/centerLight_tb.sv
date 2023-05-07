@@ -16,7 +16,8 @@ module centerLight_tb ();
     // Defining ALL input signals at t = 0 will avoid red (undefined) signals
     // in your simulation.
     reset <= 1; L <= 0; R <= 0; NL <= 0; NR <= 0; @(posedge clk);
-    reset <= 0; L <= 0; R <= 1; NL <= 0; NR <= 0; @(posedge clk);
+    reset <= 0;                                   @(posedge clk);
+                L <= 0; R <= 1; NL <= 0; NR <= 0; @(posedge clk);
                 L <= 1; R <= 0; NL <= 0; NR <= 1; @(posedge clk);
                 L <= 0; R <= 0; NL <= 0; NR <= 0; @(posedge clk);
                 L <= 1; R <= 1; NL <= 0; NR <= 0; @(posedge clk);
