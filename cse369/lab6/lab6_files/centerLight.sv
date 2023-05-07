@@ -1,5 +1,5 @@
 module centerLight (
-  input logic clock, reset,
+  input logic clk, reset,
 
   // L - True when left key (KEY[3]) is pressed
   // R - True when right key (KEY[0]) is pressed
