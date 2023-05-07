@@ -19,7 +19,7 @@ module centerLight (
             S0: if ((L & ~NL & ~R & NR) | 
                     (~L & NL & R & ~NR))  ns = S1;
                 else                      ns = S0;
-            S1: if (L & ~NL & R & ~NR)    ns = S1;
+            S1: if (~NL & ~NR & ~(L ^ R)) ns = S1;
                 else                      ns = S0;
             default:                      ns = ps;
         endcase
