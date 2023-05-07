@@ -12,7 +12,7 @@ module centerLight (
   );
 
   // YOUR CODE GOES HERE
-    enum logic {S0, S1} ps, ns;
+    enum logic {S0 = 1'b0, S1 = 1'b1} ps, ns;
 
     always_comb
         case (ps)
