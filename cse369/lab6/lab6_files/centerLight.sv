@@ -16,15 +16,15 @@ module centerLight (
 
     always_comb
         case (ps)
-            S0: if ((L & ~NL & ~R & NR) | 
-                    (~L & NL & R & ~NR))  ns = S1;
-                else                      ns = S0;
-            S1: if (~NL & ~NR & ~(L ^ R)) ns = S1;
-                else                      ns = S0;
-            default:                      ns = ps;
+            S0: if (L & NR)       ns = S1
+                else if (NL & R)  ns = S1;
+                else              ns = S0;
+            S1: if (L ^ R)        ns = S0;
+                else              ns = S1;
+            default:              ns = 1'bx;
         endcase
  
-    assign lightOn = ns;
+    assign lightOn = (ps == S1);
 
     always_ff @(posedge clk)
         if (reset)
