@@ -21,7 +21,7 @@ module normalLight (
             else              ns = S0;
         S1: if (L ^ R)        ns = S0;
             else              ns = S1;
-        default:              ns = 1'bx;
+        default:              ns = ps;
     endcase
 
   assign lightOn = (ps == S1);
