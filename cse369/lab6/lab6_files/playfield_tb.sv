@@ -1,9 +1,9 @@
 module playfield_tb ();
   logic clk, reset, L, R;
-  logic [8:0] LEDR;
+  logic [8:0] led;
   logic [1:0] winner;
 
-  playfield dut (.clk, .reset, .L, .R, .LEDR, .winner);
+  playfield dut (.clk, .reset, .L, .R, .led, .winner);
 
   // Set up the clock
   parameter CLOCK_PERIOD=100;
