@@ -1,9 +1,9 @@
 module playfield (
     input logic clk, reset,
     input logic L, R,
-    output logic [8:0] led,
+    output logic [8:0] led
     );
-    
+
     normalLight ledr1 (.clk, .reset, .L, .R, .NL(led[1]), .NR(1'b0), .lightOn(led[0]));
     normalLight ledr2 (.clk, .reset, .L, .R, .NL(led[2]), .NR(led[0]), .lightOn(led[1]));
     normalLight ledr3 (.clk, .reset, .L, .R, .NL(led[3]), .NR(led[1]), .lightOn(led[2]));
