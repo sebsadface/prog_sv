@@ -14,10 +14,10 @@ module playfield (
     normalLight ledr8 (.clk, .reset, .L, .R, .NL(LEDR[8]), .NR(LEDR[6]), .lightOn(LEDR[7]));
     normalLight ledr9 (.clk, .reset, .L, .R, .NL(0), .NR(LEDR[7]), .lightOn(LEDR[8]));
 
-
-   if (~L & ~LEDR[8] & R & LEDR[0])      winner = 2'b01;
-   else if (L & LEDR[8] & ~R & ~LEDR[0]) winner = 2'b10;
-   else   winner = 2'b00;
-
+    always_comb begin
+        if (~L & ~LEDR[8] & R & LEDR[0])      winner = 2'b01;
+        else if (L & LEDR[8] & ~R & ~LEDR[0]) winner = 2'b10;
+        else   winner = 2'b00;
+    end
 
 endmodule
