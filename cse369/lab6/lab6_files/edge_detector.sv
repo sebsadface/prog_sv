@@ -10,11 +10,12 @@ module edge_detector (
         case (ps)
             S0: if (in) ns = S1;
                 else    ns = S0;
-            S1:         ns = S0;
+            S1: if (in) ns = S1;
+                else    ns = S0;
             default:    ns = ps; 
         endcase
 
-    assign out = (ns == S1);
+    assign out = ((ns == S1) & (ps == S0));
 
     always_ff @(posedge clk)
         if (reset)
