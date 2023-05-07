@@ -23,7 +23,7 @@ module centerLight (
                 else                      ns = S0;
             default:                      ns = ps;
         endcase
-
+ 
     assign lightOn = ns;
 
     always_ff @(posedge clk)
