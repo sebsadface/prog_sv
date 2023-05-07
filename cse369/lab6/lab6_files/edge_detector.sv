@@ -16,7 +16,7 @@ module edge_detector (
 
     assign out = (ns == S1);
 
-    always_ff @(posedge CLOCK_50)
+    always_ff @(posedge clk)
         if (reset)
             ps <= S0;
         else
