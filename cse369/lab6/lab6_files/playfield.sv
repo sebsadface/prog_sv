@@ -14,27 +14,10 @@ module playfield (
     normalLight ledr8 (.clk, .reset, .L, .R, .NL(LEDR[8]), .NR(LEDR[6]), .lightOn(LEDR[7]));
     normalLight ledr9 (.clk, .reset, .L, .R, .NL(0), .NR(LEDR[7]), .lightOn(LEDR[8]));
 
-    enum logic [1:0] {S0 = 2'b00, S1 = 2'b01, S2 = 2'b10} ps, ns;
 
-    always_comb
-        case (ps)
-            S0:  if (~L & ~LEDR[8] & R & LEDR[0])      ns = S1;
-                else if (L & LEDR[8] & ~R & ~LEDR[0]) ns = S2;   
-                else   ns = S0;
-            S1:         ns = S0;
-            S2:         ns = S0;
-            default:    ns = ps;
-        endcase
+   if (~L & ~LEDR[8] & R & LEDR[0])      winner = 2'b01;
+   else if (L & LEDR[8] & ~R & ~LEDR[0]) winner = 2'b10;
+   else   winner = 2'b00;
 
-    assign winner = ns;    
-
-    // Sequential Logic
-    // Only state is FSM state
-    // Synchronous reset signal to set FSM to its first state
-    always_ff @(posedge clk)
-        if (reset)
-        ps <= S0;
-        else
-        ps <= ns;
 
 endmodule
