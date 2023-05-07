@@ -9,7 +9,7 @@ module tow (
     logic reset, L, R;
     logic [1:0] winner;
 
-    reset = SW[9];
+    assign reset = SW[9];
     user_input_handler player1 (.clk(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(R));
     user_input_handler player2 (.clk(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(L));
 

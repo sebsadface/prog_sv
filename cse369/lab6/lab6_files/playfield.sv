@@ -3,7 +3,7 @@ module playfield (
     input logic L, R,
     output logic [8:0] LEDR,
     output logic [1:0] winner
-);
+    );
     normalLight ledr1 (.clk, .reset, .L, .R, .NL(LEDR[1]), .NR(0), .lightOn(LEDR[0]));
     normalLight ledr2 (.clk, .reset, .L, .R, .NL(LEDR[2]), .NR(LEDR[0]), .lightOn(LEDR[1]));
     normalLight ledr3 (.clk, .reset, .L, .R, .NL(LEDR[3]), .NR(LEDR[1]), .lightOn(LEDR[2]));
@@ -21,8 +21,8 @@ module playfield (
             S0:  if (~L & ~LEDR[8] & R & LEDR[0])      ns = S1;
                 else if (L & LEDR[8] & ~R & ~LEDR[0]) ns = S2;   
                 else   ns = S0;
-            S1:         ns = S0
-            S2:         ns = S0
+            S1:         ns = S0;
+            S2:         ns = S0;
             default:    ns = ps;
         endcase
 
