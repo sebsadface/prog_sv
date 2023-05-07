@@ -1,5 +1,5 @@
 module ffsync (
-    input logic clk
+    input logic clk,
     input logic d,
     output logic q
 );

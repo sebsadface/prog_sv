@@ -1,5 +1,5 @@
 module user_input_handler(
-    input logic clk, reset
+    input logic clk, reset,
     input logic in,
     output logic out
 );
