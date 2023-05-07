@@ -16,7 +16,7 @@ module normalLight (
 
   always_comb
     case (ps)
-        S0: if (L & NR)       ns = S1
+        S0: if (L & NR)       ns = S1;
             else if (NL & R)  ns = S1;
             else              ns = S0;
         S1: if (L ^ R)        ns = S0;
