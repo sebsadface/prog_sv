@@ -4,7 +4,7 @@ module victory (
   output logic [6:0] leds
   );
 
-  enum logic {p1win = 7'b1111001, p2win = 7'b0100100, off = 7'b1111111} ps, ns;
+  enum logic [6:0] {p1win = 7'b1111001, p2win = 7'b0100100, off = 7'b1111111} ps, ns;
 
   always_comb begin
     case (ps)
