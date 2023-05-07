@@ -12,5 +12,24 @@ module normalLight (
   );
 
   // YOUR CODE GOES HERE
+  enum logic {S0, S1} ps, ns;
+
+  always_comb
+    case (ps)
+      S0: if ((L & ~NL & ~R & NR) | 
+              (~L & NL & R & ~NR))  ns = S1;
+          else                      ns = S0;
+      S1: if (L & ~NL & R & ~NR)    ns = S1;
+          else                      ns = S0;
+      default:                      ns = ps;
+    endcase
+
+assign lightOn = ns;
+
+always_ff @(posedge clk)
+  if (reset)
+    ps <= S0;
+  else 
+    ps <= ns;
 
 endmodule  // normalLight
