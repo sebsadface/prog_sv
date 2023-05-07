@@ -17,6 +17,8 @@ module playfield_tb ();
     // Defining ALL input signals at t = 0 will avoid red (undefined) signals
     // in your simulation.
     reset <= 1; L <= 0; R <= 0;  @(posedge clk);
+    @(posedge clk);
+    @(posedge clk);
     reset <= 0; L <= 1; R <= 0;  @(posedge clk);
                 L <= 0; R <= 0;  @(posedge clk);
                 L <= 1; R <= 0;  @(posedge clk);
