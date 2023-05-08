@@ -15,7 +15,6 @@ module user_input_handler_tb ();
         reset <= 1; in <= 0; @(posedge clk);
         reset <= 0; in <= 0; @(posedge clk);
                             @(posedge clk);
-                            @(posedge clk);
                     in <= 1; @(posedge clk);
                     in <= 0; @(posedge clk);
                     in <= 1; @(posedge clk);
