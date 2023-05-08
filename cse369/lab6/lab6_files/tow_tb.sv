@@ -6,7 +6,7 @@ module tow_tb ();
   logic [3:0] KEY;
   logic [9:0] SW;
 
-  tow dut (.CLOCK_50(clk), .HEX0, .LEDR, .KEY, .SW);
+  tow dut (.clk, .HEX0, .LEDR, .KEY, .SW);
 
   // Set up the clock
   parameter CLOCK_PERIOD=100;
