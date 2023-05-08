@@ -8,9 +8,9 @@ module tow (
 
     logic reset, L, R;
 
-    assign reset = SW[9];
     user_input_handler player1 (.clk(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(R));
     user_input_handler player2 (.clk(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(L));
+    user_input_handler res (.clk(CLOCK_50), .reset(reset), .in(SW[9]), .out(reset));
 
     playfield pf (.clk(CLOCK_50), .reset(reset), .L(L), .R(R), .led(LEDR[9:1]));
 
