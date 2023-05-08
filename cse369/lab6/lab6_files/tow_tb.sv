@@ -19,7 +19,9 @@ module tow_tb ();
   initial begin
     // Defining ALL input signals at t = 0 will avoid red (undefined) signals
     // in your simulation.
-    SW[9] <= 1; KEY[3] <= 0; KEY[0] <= 0; @(posedge clk); 
+     KEY[3] <= 0; KEY[0] <= 0; @(posedge clk); 
+         @(posedge clk);
+         SW[9] <= 1; @(posedge clk);
     SW[9] <= 0; KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
