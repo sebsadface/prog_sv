@@ -25,7 +25,7 @@ module tow_tb ();
     @(posedge clk);
     @(posedge clk);
     @(posedge clk);
-                KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
+                KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
