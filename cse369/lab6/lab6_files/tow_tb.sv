@@ -9,11 +9,11 @@ module tow_tb ();
   tow dut (.CLOCK_50(clk), .HEX0, .LEDR, .KEY, .SW);
 
   // Set up the clock
-  parameter CLOCK_PERIOD=100;
-  initial begin
-    clk <= 0;
-    forever #(CLOCK_PERIOD/2) clk <= ~clk;
-  end
+//   parameter CLOCK_PERIOD=100;
+//   initial begin
+//     clk <= 0;
+//     forever #(CLOCK_PERIOD/2) clk <= ~clk;
+//   end
 
   // Set up the inputs to the design. Each line is a clock cycle.
   initial begin
@@ -21,9 +21,7 @@ module tow_tb ();
     // in your simulation.
     SW[9] <= 1; KEY[3] <= 0; KEY[0] <= 0; @(posedge clk); 
     SW[9] <= 0; KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
-    @(posedge clk);  
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
-                @(posedge clk); 
                 KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
