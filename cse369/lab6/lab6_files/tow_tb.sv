@@ -9,11 +9,11 @@ module tow_tb ();
   tow dut (.CLOCK_50(clk), .HEX0, .LEDR, .KEY, .SW);
 
   // Set up the clock
-//   parameter CLOCK_PERIOD=100;
-//   initial begin
-//     clk <= 0;
-//     forever #(CLOCK_PERIOD/2) clk <= ~clk;
-//   end
+  parameter CLOCK_PERIOD=100;
+  initial begin
+    clk <= 0;
+    forever #(CLOCK_PERIOD/2) clk <= ~clk;
+  end
 
   // Set up the inputs to the design. Each line is a clock cycle.
   initial begin
