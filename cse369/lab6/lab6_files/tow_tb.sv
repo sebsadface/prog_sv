@@ -12,7 +12,7 @@ module tow_tb ();
   parameter CLOCK_PERIOD=100;
   initial begin
     clk <= 0;
-    forever #(CLOCK_PERIOD/2) clk <= ~clk;
+    forever #(CLOCK_PERIOD/4) clk <= ~clk;
   end
 
   // Set up the inputs to the design. Each line is a clock cycle.
