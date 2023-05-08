@@ -6,7 +6,7 @@ module tow_tb ();
   logic [3:0] KEY;
   logic [9:0] SW;
 
-  tow dut (.clk, .HEX0, .LEDR, .KEY, .SW);
+  tow dut (.CLOCK_50(clk), .HEX0, .LEDR, .KEY, .SW);
 
   // Set up the clock
   parameter CLOCK_PERIOD=100;
@@ -22,7 +22,9 @@ module tow_tb ();
     SW[9] <= 1; KEY[3] <= 0; KEY[0] <= 0; @(posedge clk); 
     SW[9] <= 0; KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
+                                          @(posedge clk);
                 KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
+                                          @(posedge clk);
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 1; KEY[0] <= 0; @(posedge clk);
                 KEY[3] <= 0; KEY[0] <= 0; @(posedge clk);
