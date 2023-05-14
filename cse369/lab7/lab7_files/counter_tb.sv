@@ -40,6 +40,7 @@ module counter_tb ();
 
                 count <= 1; @(posedge clk);
                 count <= 0; @(posedge clk);
+    reset <= 1;             @(posedge clk);
     $stop;  // pause the simulation
   end
 endmodule  // counter_tb
