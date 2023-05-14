@@ -29,7 +29,7 @@ assign out = ps;
 
 always_ff @(posedge clk)
     if (reset)
-        ps <= 3'b000;
+        ps <= S0;
     else
         ps <= ns;
 
