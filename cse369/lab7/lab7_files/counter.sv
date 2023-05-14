@@ -25,7 +25,7 @@ always_comb
         default: ns = ps;
     endcase
 
-assign out = ns;
+assign out = ps;
 
 always_ff @(posedge clk)
     if (reset)
