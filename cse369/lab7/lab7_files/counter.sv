@@ -3,25 +3,25 @@ module counter (
     output logic [2:0] out
 );
 
-enum logic ps, ns;
+enum logic {S0 = 3'b000, S1 = 3'b001, S2 = 3'b010,  S3 = 3'b011, S4 = 3'b100, S5 = 3'b101, S6 = 3'b110, S7 = 3'b111} ps, ns;
 
 always_comb
     case (ps)
-        3'b000: if (count) ns = 3'b001;
-                else       ns = 3'b000;
-        3'b001: if (count) ns = 3'b010;
-                else       ns = 3'b001;
-        3'b010: if (count) ns = 3'b011;
-                else       ns = 3'b010;
-        3'b011: if (count) ns = 3'b100;
-                else       ns = 3'b011;
-        3'b100: if (count) ns = 3'b101;
-                else       ns = 3'b100;
-        3'b101: if (count) ns = 3'b110;
-                else       ns = 3'b101;
-        3'b110: if (count) ns = 3'b111;
-                else       ns = 3'b110;
-        3'b111:            ns = 3'b111;
+        S0: if (count) ns = S1;
+            else       ns = S0;
+        S1: if (count) ns = S2;
+            else       ns = S1;
+        S2: if (count) ns = S3;
+            else       ns = S2;
+        S3: if (count) ns = S4;
+            else       ns = S3;
+        S4: if (count) ns = S5;
+            else       ns = S4;
+        S5: if (count) ns = S6;
+            else       ns = S5;
+        S6: if (count) ns = S7;
+            else       ns = S6;
+        S7:            ns = S7;
         default: ns = ps;
     endcase
 
