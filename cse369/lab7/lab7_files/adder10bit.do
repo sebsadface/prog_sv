@@ -4,6 +4,7 @@ vlib work
 # Compile Verilog
 #     All Verilog files that are part of this design should have
 #     their own "vlog" line below.
+vlog "./adder1bit.sv"
 vlog "./adder10bit.sv"
 vlog "./adder10bit_tb.sv"
 
