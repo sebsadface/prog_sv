@@ -6,7 +6,7 @@ module tow (
   input  logic [9:0] SW
   );
 
-    logic mainreset, autoreset L, R;
+    logic mainreset, autoreset, L, R;
 
     assign mainreset = SW[9];
     user_input_handler player1 (.clk(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(R));
