@@ -7,19 +7,16 @@ module victory (
   logic [2:0] outL, outR;
   logic countL, countR;
 
-  if (outL = 3'b111) begin
-    assign countR = 1'b0;
-  end
-  else begin
-    assign countR = (ledr1 & R);
-  end
+  always_ff @(posedge clk)
+    if (outL = 3'b111)
+      countR = 1'b0;
+    else
+      assign countR = (ledr1 & R);
 
-  if (outR = 3'b111) begin
-    assign countL = 1'b0;
-  end
-  else begin
-    assign countL = (ledr9 & L);
-  end
+    if (outR = 3'b111) 
+      assign countL = 1'b0;
+    else
+      assign countL = (ledr9 & L);
 
   counter left (.clk, .reset, .count(countL), .out(outL));
   counter right (.clk, .reset, .count(countR), .out(outR));
