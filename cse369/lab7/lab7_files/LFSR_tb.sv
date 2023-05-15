@@ -3,7 +3,7 @@ module LFSR_tb ();
   logic clk;
   logic [8:0] Q;
 
-  LFSR dut (.clk, .Q);
+  LFSR dut (.clk, .Q(9'b000000000));
 
   // Set up the clock
   parameter CLOCK_PERIOD=100;
@@ -14,7 +14,6 @@ module LFSR_tb ();
    
    integer i;
   initial begin
-    Q <= 9'b000000000;
     for (i =0; i < 512; i++) begin
         @(posedge clk);
     end
