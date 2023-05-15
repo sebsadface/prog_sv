@@ -1,5 +1,5 @@
 module tow #(
-  parameter whichClock = 17
+  parameter whichClock = 15
   )
   (
   input  logic       CLOCK_50,  // 50MHz clock
