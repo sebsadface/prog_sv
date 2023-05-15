@@ -14,7 +14,7 @@ module LFSR_tb ();
    
    integer i;
   initial begin
-    Q <= 9'b000000000 @(posedge clk);
+    Q <= 9'b000000000; @(posedge clk);
     for (i =0; i < 512; i++) begin
         @(posedge clk);
     end
