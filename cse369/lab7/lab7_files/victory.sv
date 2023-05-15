@@ -7,17 +7,12 @@ module victory (
   logic [2:0] outL, outR;
   logic countL, countR;
 
-  always_comb begin
-    case (outL)
-      3'b111: countR = 1'b0;
-      default: countR = (ledr1 & R);
-    endcase
+  if (outL = 3'b111) countR = 1'b0;
+  else               countR = (ledr1 & R);
     
-    case (outR)
-      3'b111: countL = 1'b0;
-      default: countR = (ledr9 & L);
-    endcase
-  end
+    if (outR = 3'b111) countL = 1'b0;
+    else               countL = (ledr9 & L);
+
 
   counter left (.clk, .reset, .count(countL), .out(outL));
   counter right (.clk, .reset, .count(countR), .out(outR));
