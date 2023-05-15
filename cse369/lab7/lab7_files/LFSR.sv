@@ -5,7 +5,7 @@ module LFSR (
 
 always_ff @(posedge clk) begin
     if (reset) 
-        Q <= 9'b0;
+        Q <= 9'b000000000;
     else    
         Q[8] <= Q[7];
         Q[7] <= Q[6];
