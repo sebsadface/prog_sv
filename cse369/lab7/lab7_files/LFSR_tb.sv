@@ -12,7 +12,6 @@ module LFSR_tb ();
     forever #(CLOCK_PERIOD/2) clk <= ~clk;
   end
    
-   assign Q = 9'b000000000;
    integer i;
   initial begin
     for (i =0; i < 512; i++) begin

@@ -12,7 +12,7 @@ always_ff @(posedge clk) begin
     Q[3] <= Q[2];
     Q[2] <= Q[1];
     Q[1] <= Q[0];
-    Q[0] <= ~(Q[5] ^ Q[9]);
+    Q[0] <= ~(Q[5] ^ Q[8]);
 end 
 
 endmodule // LFSR
