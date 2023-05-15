@@ -1,9 +1,9 @@
  // Testbench for LFSR
 module LFSR_tb ();
-  logic clk;
+  logic clk, reset;
   logic [8:0] Q;
 
-  LFSR dut (.clk, .Q);
+  LFSR dut (.clk, .reset, .Q);
 
   // Set up the clock
   parameter CLOCK_PERIOD=100;
@@ -14,8 +14,8 @@ module LFSR_tb ();
    
   integer i;
   initial begin
-    Q <= 9'b0;
-
+    reset <= 1;
+    reset <= 0;
     for (i =0; i < 512; i++) begin
         @(posedge clk);
     end
