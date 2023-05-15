@@ -9,12 +9,12 @@ module victory (
 
   always_comb begin
     case (outL)
-      7'b1111000: countR = 1'b0;
+      3'b111: countR = 1'b0;
       default: countR = (ledr1 & R);
     endcase
     
     case (outR)
-      7'b1111000: countL = 1'b0;
+      3'b111: countL = 1'b0;
       default: countR = (ledr9 & L);
     endcase
   end
