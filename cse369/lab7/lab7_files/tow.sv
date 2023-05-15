@@ -9,10 +9,10 @@ module tow (
     logic mainreset, autoreset, L, R;
 
     assign mainreset = SW[9];
-    user_input_handler player1 (.clk(CLOCK_50), .reset(reset), .in(~KEY[0]), .out(R));
-    user_input_handler player2 (.clk(CLOCK_50), .reset(reset), .in(~KEY[3]), .out(L));
+    user_input_handler player1 (.clk(CLOCK_50), .reset(mainreset), .in(~KEY[0]), .out(R));
+    user_input_handler player2 (.clk(CLOCK_50), .reset(mainreset), .in(~KEY[3]), .out(L));
 
-    assign autoreset = (LEDR[9] & L) | (LEDR[0] & R) | mainreset;
+    assign autoreset = ((LEDR[9] & L) | (LEDR[0] & R) | mainreset);
     playfield pf (.clk(CLOCK_50), .reset(autoreset), .L(L), .R(R), .led(LEDR[9:1]));
 
     victory vic (.clk(CLOCK_50), .reset(mainreset), .ledr1(LEDR[1]), .ledr9(LEDR[9]), .L(L), .R(R), .ledsR(HEX0), .ledsL(HEX5));
