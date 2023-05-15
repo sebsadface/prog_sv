@@ -14,8 +14,8 @@ module LFSR_tb ();
    
   integer i;
   initial begin
-    reset <= 1;
-    reset <= 0;
+    reset <= 1; @(posedge clk);
+    reset <= 0; @(posedge clk);
     for (i =0; i < 512; i++) begin
         @(posedge clk);
     end
