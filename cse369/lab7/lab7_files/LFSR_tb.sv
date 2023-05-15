@@ -12,7 +12,7 @@ module LFSR_tb ();
     forever #(CLOCK_PERIOD/2) clk <= ~clk;
   end
 
-  Q = 9'b000000000
+  Q = 9'b000000000;
    
    integer i;
   initial begin
