@@ -1,29 +1,15 @@
 module victory (
   input clk, reset,
-  input ledr1, ledr9, L, R,
-  output logic [6:0] leds
+  input ledr1, ledr9, L, R, 
+  output logic [6:0] ledsL, ledsR
   );
 
-  enum logic [6:0] {p1win = 7'b1111001, p2win = 7'b0100100, off = 7'b1111111} ps, ns;
+  logic [2:0] countL, countR;
 
-  always_comb begin
-    case (ps)
-        off: if (ledr9 & L)      ns = p2win;
-             else if (ledr1 & R) ns = p1win;
-             else                ns = off;
-        p2win:                   ns = p2win;
-        p1win:                   ns = p1win;
-        default:                 ns = ps;
-    endcase
-  end
-  
-  assign leds = ps;
+  counter left (.clk, .reset, .count(ledr9 & L), .out(countL));
+  counter right (.clk, .reset, .count(ledr1 & R), .out(countR));
 
-  always_ff @(posedge clk)
-        if (reset)
-            ps <= off;
-        else 
-            ps <= ns;
-
+  seg7 leftseg (.bcd(countL), .leds(ledsL));
+  seg7 rightseg (.bcd(countR), .leds(ledsR));
 
 endmodule  // victory
