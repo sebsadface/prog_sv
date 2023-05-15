@@ -14,11 +14,11 @@ module victory (
     if (outR[0] & outR[1] & outR[2]) countL = 1'b0;
     else                             countL = (ledr9 & L);
   end
-  
+
   counter left (.clk, .reset, .count(countL), .out(outL));
   counter right (.clk, .reset, .count(countR), .out(outR));
 
-  seg7 leftseg (.bcd(countL), .leds(ledsL));
-  seg7 rightseg (.bcd(countR), .leds(ledsR));
+  seg7 leftseg (.bcd(outL), .leds(ledsL));
+  seg7 rightseg (.bcd(outR), .leds(ledsR));
 
 endmodule  // victory
