@@ -8,12 +8,12 @@ module victory (
   logic countL, countR;
 
   always_ff @(posedge clk)
-    if (outL = 3'b111)
+    if (outL[0] & outL[1] & outL[2])
       countR = 1'b0;
     else
       assign countR = (ledr1 & R);
 
-    if (outR = 3'b111) 
+    if (outR[0] & outR[1] & outR[2]) 
       assign countL = 1'b0;
     else
       assign countL = (ledr9 & L);
