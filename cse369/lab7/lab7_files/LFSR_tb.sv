@@ -11,11 +11,10 @@ module LFSR_tb ();
     clk <= 0;
     forever #(CLOCK_PERIOD/2) clk <= ~clk;
   end
-
-  Q = 9'b000000000;
    
    integer i;
   initial begin
+    Q <= 9'b000000000 @(posedge clk);
     for (i =0; i < 512; i++) begin
         @(posedge clk);
     end
