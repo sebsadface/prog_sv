@@ -48,9 +48,6 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 	 	 SW[9]      : Reset
 		 =================================================================== */
 
-	cleanInput c1 (.Clock(SYSTEM_CLOCK), .Reset(RST), .in(~KEY[0]), .out(select));
-	cleanInput c2 (.Clock(SYSTEM_CLOCK), .Reset(RST), .in(~KEY[1]), .out(next));
-
 	user_input_handler next (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[0]), .out(select));
 	user_input_handler select (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[1], .out(next)));
 	
