@@ -1,11 +1,11 @@
 // William Thing
 // Final Project
 
-module DDR(CLOCK_50, SW, LEDR, KEY, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0); 
+module DDR(CLOCK_50, SW, LEDR, KEY, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_1); 
 	input CLOCK_50; 
 	input [9:0] SW;
 	input [3:0] KEY;
-	inout [35:0] GPIO_0;
+	inout [35:0] GPIO_1;
 	output reg [9:0] LEDR;
 	output reg [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 
@@ -22,26 +22,26 @@ module DDR(CLOCK_50, SW, LEDR, KEY, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0);
 	wire trig0, trig1, trig2, trig3;
 	
 	// assign LED DISPLAY FOR THE ROWS
-	assign GPIO_0[9] = ROW[0];
-	assign GPIO_0[8] = ROW[1];
-	assign GPIO_0[7] = ROW[2];
-	assign GPIO_0[6] = ROW[3];
-	assign GPIO_0[0] = ROW[4];
-	assign GPIO_0[5] = ROW[5];
-	assign GPIO_0[4] = ROW[6];
-	assign GPIO_0[3] = ROW[7];
+	assign GPIO_1[9] = ROW[0];
+	assign GPIO_1[8] = ROW[1];
+	assign GPIO_1[7] = ROW[2];
+	assign GPIO_1[6] = ROW[3];
+	assign GPIO_1[0] = ROW[4];
+	assign GPIO_1[5] = ROW[5];
+	assign GPIO_1[4] = ROW[6];
+	assign GPIO_1[3] = ROW[7];
 	
 	// assign LED DISPLAY FOR THE GREEN (COLS)
-	assign GPIO_0[35] = GREEN[0];
-	assign GPIO_0[33] = GREEN[1];
-	assign GPIO_0[31] = GREEN[2];
-	assign GPIO_0[18] = GREEN[3];
+	assign GPIO_1[35] = GREEN[0];
+	assign GPIO_1[33] = GREEN[1];
+	assign GPIO_1[31] = GREEN[2];
+	assign GPIO_1[18] = GREEN[3];
 
 	// assign LED Display for RED (COLS)
-	assign GPIO_0[34] = RED[0];
-	assign GPIO_0[32] = RED[1];
-	assign GPIO_0[17] = RED[2];
-	assign GPIO_0[28] = RED[3];
+	assign GPIO_1[34] = RED[0];
+	assign GPIO_1[32] = RED[1];
+	assign GPIO_1[17] = RED[2];
+	assign GPIO_1[28] = RED[3];
 	
 	reg [7:0][7:0] green_array, red_array;
 	
