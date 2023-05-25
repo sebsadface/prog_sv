@@ -16,9 +16,10 @@ module playerSwitcher (
 		
 	assign currentPlayer = thisPlayer;
 	
-	always_ff @(posedge clock)
+	always_ff @(posedge clk)
 		if (reset)
 			thisPlayer <= playerX;
 		else
 			thisPlayer <= nextPlayer;
+
 endmodule
