@@ -1,8 +1,8 @@
 module cellSelector (
-	input logic clk, reset, next
-	output logic [15:0] [15:0] GrnPixels;
-	output logic [15:0] [15:0] RedPixels;
-	output logic [3:0] selectedCell;
+	input logic clk, reset, next,
+	output logic [15:0][15:0] GrnPixels,
+	output logic [15:0][15:0] RedPixels,
+	output logic [3:0] selectedCell,
 );
 	
 	enum logic [3:0] {C0 = 4'b0000, C1 = 4'b0001, C2 = 4'b0010,

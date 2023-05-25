@@ -1,6 +1,6 @@
 module playerSwitcher (
-	input logic clk, reset, select;
-	output logic currentPlayer;
+	input logic clk, reset, select,
+	output logic currentPlayer,
 );
 	
 	enum logic {playerX = 1'b0, playerO = 1'b1} thisPlayer, nextPlayer; 
