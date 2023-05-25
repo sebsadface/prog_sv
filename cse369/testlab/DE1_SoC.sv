@@ -30,31 +30,31 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
    logic reset;
    assign reset = SW[9]; // Reset when SW[9] is pressed
   
-   //hookup GPIO_1
-   assign GPIO_1[12] = rowSink[0];
-   assign GPIO_1[13] = rowSink[1];
-   assign GPIO_1[14] = rowSink[2];
-   assign GPIO_1[15] = rowSink[3];
-   assign GPIO_1[16] = rowSink[4];
-   assign GPIO_1[17] = rowSink[5];
-   assign GPIO_1[18] = rowSink[6];
-   assign GPIO_1[19] = rowSink[7];
-   assign GPIO_1[20] = red[0];
-   assign GPIO_1[21] = red[1];
-   assign GPIO_1[22] = red[2];
-   assign GPIO_1[23] = red[3];
-   assign GPIO_1[24] = red[4];
-   assign GPIO_1[25] = red[5];
-   assign GPIO_1[26] = red[6];
-   assign GPIO_1[27] = red[7];
-   assign GPIO_1[28] = green[0];
-   assign GPIO_1[29] = green[1];
-   assign GPIO_1[30] = green[2];
-   assign GPIO_1[31] = green[3];
-   assign GPIO_1[32] = green[4];
-   assign GPIO_1[33] = green[5];
-   assign GPIO_1[34] = green[6];
-   assign GPIO_1[35] = green[7];
+//    //hookup GPIO_1
+//    assign GPIO_1[12] = rowSink[0];
+//    assign GPIO_1[13] = rowSink[1];
+//    assign GPIO_1[14] = rowSink[2];
+//    assign GPIO_1[15] = rowSink[3];
+//    assign GPIO_1[16] = rowSink[4];
+//    assign GPIO_1[17] = rowSink[5];
+//    assign GPIO_1[18] = rowSink[6];
+//    assign GPIO_1[19] = rowSink[7];
+//    assign GPIO_1[20] = red[0];
+//    assign GPIO_1[21] = red[1];
+//    assign GPIO_1[22] = red[2];
+//    assign GPIO_1[23] = red[3];
+//    assign GPIO_1[24] = red[4];
+//    assign GPIO_1[25] = red[5];
+//    assign GPIO_1[26] = red[6];
+//    assign GPIO_1[27] = red[7];
+//    assign GPIO_1[28] = green[0];
+//    assign GPIO_1[29] = green[1];
+//    assign GPIO_1[30] = green[2];
+//    assign GPIO_1[31] = green[3];
+//    assign GPIO_1[32] = green[4];
+//    assign GPIO_1[33] = green[5];
+//    assign GPIO_1[34] = green[6];
+//    assign GPIO_1[35] = green[7];
 
    // Generate clk off of CLOCK_50, whichClock picks rate
    logic [31:0] clk;
