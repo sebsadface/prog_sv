@@ -175,7 +175,7 @@ module cellSelector (
 	
 	assign selectedCell = ps;
 	
-	always_ff @(posedge clock)
+	always_ff @(posedge clk)
 		if (reset) begin
 			ps <= C0;		
 			end
