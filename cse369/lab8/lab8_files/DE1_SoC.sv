@@ -32,9 +32,9 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 	    ================================================================== */
 	 logic [15:0][15:0]RedPixels; // 16 x 16 array representing red LEDs
     logic [15:0][15:0]GrnPixels; // 16 x 16 array representing green LEDs
-	 logic RST, next, select, player, player_selector;                  
+	 logic RST, next, select, currentPlayer;                  
 //	 logic [1:0] one,two,three,four,five,size,seven,eight,nine;
-	 logic [3:0] number;
+	 logic [3:0] selectedCell;
 	 assign RST = SW[9];
 	 
 	 /* Standard LED Driver instantiation - set once and 'forget it'. 
@@ -50,10 +50,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 
 	cleanInput c1 (.Clock(SYSTEM_CLOCK), .Reset(RST), .in(~KEY[0]), .out(select));
 	cleanInput c2 (.Clock(SYSTEM_CLOCK), .Reset(RST), .in(~KEY[1]), .out(next));
-	cleanInput c3 (.Clock(SYSTEM_CLOCK), .Reset(RST), .in(~KEY[2]), .out(player_selector));
+
+	user_input_handler next (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[0]), .out(select));
+	user_input_handler select (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[1], .out(next)));
 	
-	player_toggle pt (.clock (SYSTEM_CLOCK), .reset(RST), .select(select), .player);
+	playerSwitcher playerSwitcher (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer);
 	
-	selector s (.clock(SYSTEM_CLOCK), .reset(RST), .next, .GrnPixels, .number);
-	led_controller lc(.clock(SYSTEM_CLOCK),.number,.player, .select, .RedPixels, .reset(RST), .leds(HEX0));
+	cellSelector cs (.clk(SYSTEM_CLOCK), .reset(RST), .next, .GrnPixels, .RedPixels, .selectedCell);
+	led_controller lc(.clock(SYSTEM_CLOCK), .number(selectedCell), .player(currentPlayer), .select, .RedPixels, .reset(RST), .leds(HEX0));
 endmodule
