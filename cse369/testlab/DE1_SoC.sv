@@ -1,33 +1,33 @@
-module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPIO_1);
-   input        CLOCK_50; // 50 MHz "master" clock
-   output reg [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-   output reg [9:0] LEDR;
-   input  [3:0] KEY;   // True when not pressed, False when pressed
-   input  [9:0] SW;
-   output [35:0] GPIO_1;  //inout pins from the DE1 board
-   reg [7:0][7:0] green_array, red_array;
+module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK_50);
+   output logic [6:0]  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
+	 output logic [9:0]  LEDR;
+    input  logic [3:0]  KEY;
+    input  logic [9:0]  SW;
+    output logic [35:0] GPIO_1;
+    input logic CLOCK_50;
+   logic [7:0][7:0] green_array, red_array;
   
    // Default values, turns off the HEX displays    
    assign HEX3 = 7'b1111111;   
    assign HEX4 = 7'b1111111; 
    assign HEX5 = 7'b1111111;     
   
-   //wires for lights
-   wire[7:0] red, green, rowSink;
+   //logics for lights
+   logic[7:0] red, green, rowSink;
 	
-	//wire for pseudorandom
-	wire [3:0] outLSFR6;
+	//logic for pseudorandom
+	logic [3:0] outLSFR6;
 	
-	//wire for loss detection signal
-	wire groundOut;
-	wire lossDetect;
+	//logic for loss detection signal
+	logic groundOut;
+	logic lossDetect;
 	
-	//wire score detection
-	wire detect_score;
-	wire out_score, out_score10, out_score100;
+	//logic score detection
+	logic detect_score;
+	logic out_score, out_score10, out_score100;
  
    //reset
-   wire reset;
+   logic reset;
    assign reset = SW[9]; // Reset when SW[9] is pressed
   
    //hookup GPIO_1
@@ -57,13 +57,13 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
    assign GPIO_1[35] = green[7];
 
    // Generate clk off of CLOCK_50, whichClock picks rate
-   wire [31:0] clk;
+   logic [31:0] clk;
    parameter whichClock = 11;
    clock_divider cdiv (CLOCK_50, clk);
 
-	//the many column wire sets for pipes boi
+	//the many column logic sets for pipes boi
 	//--col 0--//
-	wire [7:0] greenCol_0;
+	logic [7:0] greenCol_0;
 	assign green_array[7][0] = greenCol_0[7];
 	assign green_array[6][0] = greenCol_0[6];
 	assign green_array[5][0] = greenCol_0[5];
@@ -74,7 +74,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	assign green_array[0][0] = greenCol_0[0];
 	
 	//--col 1--//
-	wire [7:0] greenCol_1;
+	logic [7:0] greenCol_1;
 	assign green_array[7][1] = greenCol_1[7];
 	assign green_array[6][1] = greenCol_1[6];
 	assign green_array[5][1] = greenCol_1[5];
@@ -85,7 +85,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	assign green_array[0][1] = greenCol_1[0];
 		
 	//--col 2--//
-	wire [7:0] greenCol_2;
+	logic [7:0] greenCol_2;
 	assign green_array[7][2] = greenCol_2[7];
 	assign green_array[6][2] = greenCol_2[6];
 	assign green_array[5][2] = greenCol_2[5];
@@ -96,7 +96,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	assign green_array[0][2] = greenCol_2[0];
 	
 	//--col 3--//
-	wire [7:0] greenCol_3;
+	logic [7:0] greenCol_3;
 	assign green_array[7][3] = greenCol_3[7];
 	assign green_array[6][3] = greenCol_3[6];
 	assign green_array[5][3] = greenCol_3[5];
@@ -107,7 +107,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	assign green_array[0][3] = greenCol_3[0];
 	
 	//--col 4--//
-	wire [7:0] greenCol_4;
+	logic [7:0] greenCol_4;
 	assign green_array[7][4] = greenCol_4[7];
 	assign green_array[6][4] = greenCol_4[6];
 	assign green_array[5][4] = greenCol_4[5];
@@ -118,7 +118,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	assign green_array[0][4] = greenCol_4[0];
 	
 	//--col 5--//
-	wire [7:0] greenCol_5;
+	logic [7:0] greenCol_5;
 	assign green_array[7][5] = greenCol_5[7];
 	assign green_array[6][5] = greenCol_5[6];
 	assign green_array[5][5] = greenCol_5[5];
@@ -129,7 +129,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	assign green_array[0][5] = greenCol_5[0];
 	
 	//--col 6--//
-	wire [7:0] greenCol_6;
+	logic [7:0] greenCol_6;
 	assign green_array[7][6] = greenCol_6[7];
 	assign green_array[6][6] = greenCol_6[6];
 	assign green_array[5][6] = greenCol_6[5];
@@ -140,7 +140,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	assign green_array[0][6] = greenCol_6[0];
 		
 	//--col 7--//
-	wire [7:0] greenCol_7;
+	logic [7:0] greenCol_7;
 	assign green_array[7][7] = greenCol_7[7];
 	assign green_array[6][7] = greenCol_7[6];
 	assign green_array[5][7] = greenCol_7[5];
@@ -192,7 +192,8 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, GPI
 	
 	
    //drives the matrix LED 8x8, provided by CSE369 handout 
-   led_matrix_driver lights (clk[whichClock], red_array, green_array, red, green, rowSink);
+   //led_matrix_driver lights (clk[whichClock], red_array, green_array, red, green, rowSink);
+   LEDDriver lights (.CLK(clk[whichClock]), .RST(reset), .EnableCount(1'b1), .RedPixels(red_array), .GrnPixels(green_arry), .GPIO_1);
 
   
   
@@ -201,7 +202,7 @@ endmodule
 // divided_clocks[0]=25MHz, [1]=12.5Mhz, ... [23]=3Hz, [24]=1.5Hz, [25]=0.75Hz
 module clock_divider (clock, divided_clocks);
   input               clock;
-    output reg [31:0] divided_clocks;
+    output logic [31:0] divided_clocks;
   
   initial
     divided_clocks = 0;
@@ -211,12 +212,12 @@ module clock_divider (clock, divided_clocks);
 endmodule 
 
 module DE1_SoC_testbench();
-  reg CLOCK_50, reset, clk; 
-  wire [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-  wire [9:0] LEDR;
-  wire [35:0] GPIO_1;
-  reg  [3:0] KEY; // True when not pressed, False when pressed
-  reg  [9:0] SW;
+  logic CLOCK_50, reset, clk; 
+  logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
+  logic [9:0] LEDR;
+  logic [35:0] GPIO_1;
+  logic  [3:0] KEY; // True when not pressed, False when pressed
+  logic  [9:0] SW;
   
   DE1_SoC diss (.CLOCK_50(clk), .HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5, .KEY, .LEDR, .SW, .GPIO_1);
 
