@@ -37,7 +37,8 @@ module led_controller(clock, number,player,select, RedPixels, reset, leds);
 		case (number)
 			0:begin
 				if (out0 == 1) begin
-					RedPixels[1] |= (16'b0100100000000000);
+					RedPixels[1][14] |= (1'b1);
+					RedPixels[1][11] |= (1'b1);
 					RedPixels[2] |= (16'b0011000000000000);
 					RedPixels[3] |= (16'b0011000000000000);
 					RedPixels[4] |= (16'b0100100000000000);
