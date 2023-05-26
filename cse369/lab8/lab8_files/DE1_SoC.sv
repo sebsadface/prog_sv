@@ -51,9 +51,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 	user_input_handler sl (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[0]), .out(select));
 	user_input_handler nx (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[1]), .out(next));
 	
+	emptyBoard board (.GrnPixels);
+
 	playerSwitcher ps (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer);
 	
-	cellSelector cs (.clk(SYSTEM_CLOCK), .reset(RST), .next, .GrnPixels, .RedPixels, .selectedCell);
+	cellSelector cs (.clk(SYSTEM_CLOCK), .reset(RST), .next, .RedPixels, .selectedCell);
 	//led_controller lc(.clock(SYSTEM_CLOCK), .number(selectedCell), .player(currentPlayer), .select, .RedPixels, .reset(RST), .leds(HEX0));
 
 endmodule
