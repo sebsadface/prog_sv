@@ -76,40 +76,7 @@ module cellSelector(
 					RedPixels[05] = RedIntermediate[05] | 16'b0000000000000000;
 				end
 			endcase
-			case (currentGame[2])
-				2'b00: begin
-					RedPixels[00] = RedIntermediate[00] | 16'b0000000000000000;
-					RedPixels[01] = RedIntermediate[01] | 16'b0000000000000000;
-					RedPixels[02] = RedIntermediate[02] | 16'b0000000000000000;
-					RedPixels[03] = RedIntermediate[03] | 16'b0000000000000000;
-					RedPixels[04] = RedIntermediate[04] | 16'b0000000000000000;
-					RedPixels[05] = RedIntermediate[05] | 16'b0000000000000000;
-				end
-				2'b01: begin
-					RedPixels[00] = RedIntermediate[00] | 16'b0000000000000000;
-					RedPixels[01] = RedIntermediate[01] | 16'b0000000000010010;
-					RedPixels[02] = RedIntermediate[02] | 16'b0000000000001100;
-					RedPixels[03] = RedIntermediate[03] | 16'b0000000000001100;
-					RedPixels[04] = RedIntermediate[04] | 16'b0000000000010010;
-					RedPixels[05] = RedIntermediate[05] | 16'b0000000000000000;
-				end
-				2'b10: begin
-					RedPixels[00] = RedIntermediate[00] | 16'b0000000000000000;
-					RedPixels[01] = RedIntermediate[01] | 16'b0000000000001100;
-					RedPixels[02] = RedIntermediate[02] | 16'b0000000000010010;
-					RedPixels[03] = RedIntermediate[03] | 16'b0000000000010010;
-					RedPixels[04] = RedIntermediate[04] | 16'b0000000000001100;
-					RedPixels[05] = RedIntermediate[05] | 16'b0000000000000000;
-				end
-				default: begin
-					RedPixels[00] = RedIntermediate[00] | 16'b0000000000000000;
-					RedPixels[01] = RedIntermediate[01] | 16'b0000000000000000;
-					RedPixels[02] = RedIntermediate[02] | 16'b0000000000000000;
-					RedPixels[03] = RedIntermediate[03] | 16'b0000000000000000;
-					RedPixels[04] = RedIntermediate[04] | 16'b0000000000000000;
-					RedPixels[05] = RedIntermediate[05] | 16'b0000000000000000;
-				end
-			endcase
+			
 			case (currentGame[3])
 				2'b00: begin
 					RedPixels[06] = RedIntermediate[06] | 16'b0000000000000000;
