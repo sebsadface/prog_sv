@@ -9,7 +9,7 @@ module cellSelector(
 		else begin
 			case (currentGame[0])
 				2'b00: begin
-					RedPixels[01] |= 16'b0000000000000000;
+					RedPixels[01] = RedPixels[01] | 16'b0000000000000000;
 					RedPixels[02] |= 16'b0000000000000000;
 					RedPixels[03] |= 16'b0000000000000000;
 					RedPixels[04] |= 16'b0000000000000000;
