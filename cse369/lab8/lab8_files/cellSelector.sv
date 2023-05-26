@@ -119,6 +119,7 @@ module cellSelector (
 					RedPixels[13][11] = 1'b0;
 					RedPixels[14][06] = 1'b0;
 					RedPixels[14][11] = 1'b0;
+					RedPixels[11][00] = 1'b0;
 					RedPixels[11][05] = 1'b0;
 					RedPixels[12][00] = 1'b0;
 					RedPixels[12][05] = 1'b0;
@@ -130,7 +131,7 @@ module cellSelector (
 				end
 
 			C1: begin
-					RedPixels[00] = 16'b0000111111000000;
+					RedPixels[00] = 16'b0000011111100000;
 					RedPixels[01][10] = 1'b0;
 					RedPixels[01][15] = 1'b0;
 					RedPixels[02][10] = 1'b0;
@@ -139,27 +140,27 @@ module cellSelector (
 					RedPixels[03][15] = 1'b0;
 					RedPixels[04][10] = 1'b0;
 					RedPixels[04][15] = 1'b0;
-					RedPixels[01][06] = 1'b1;
-					RedPixels[01][11] = 1'b1;
-					RedPixels[02][06] = 1'b1;
-					RedPixels[02][11] = 1'b1;
-					RedPixels[03][06] = 1'b1;
-					RedPixels[03][11] = 1'b1;
-					RedPixels[04][06] = 1'b1;
-					RedPixels[04][11] = 1'b1;
-					RedPixels[05] = 16'b0000111111000000;
+					RedPixels[01][05] = 1'b1;
+					RedPixels[01][10] = 1'b1;
+					RedPixels[02][05] = 1'b1;
+					RedPixels[02][10] = 1'b1;
+					RedPixels[03][05] = 1'b1;
+					RedPixels[03][10] = 1'b1;
+					RedPixels[04][05] = 1'b1;
+					RedPixels[04][10] = 1'b1;
+					RedPixels[05] = 16'b0000011111100000;
 				end
 
 			C2: begin
 					RedPixels[00] = 16'b0000000000111111;
-					RedPixels[01][06] = 1'b0;
-					RedPixels[01][11] = 1'b0;
-					RedPixels[02][06] = 1'b0;
-					RedPixels[02][11] = 1'b0;
-					RedPixels[03][06] = 1'b0;
-					RedPixels[03][11] = 1'b0;
-					RedPixels[04][06] = 1'b0;
-					RedPixels[04][11] = 1'b0;
+					RedPixels[01][05] = 1'b0;
+					RedPixels[01][10] = 1'b0;
+					RedPixels[02][05] = 1'b0;
+					RedPixels[02][10] = 1'b0;
+					RedPixels[03][05] = 1'b0;
+					RedPixels[03][10] = 1'b0;
+					RedPixels[04][05] = 1'b0;
+					RedPixels[04][10] = 1'b0;
 					RedPixels[01][00] = 1'b1;
 					RedPixels[01][05] = 1'b1;
 					RedPixels[02][00] = 1'b1;
@@ -194,36 +195,36 @@ module cellSelector (
 				end
 
 			C4: begin
-					RedPixels[05] = 16'b0000111111000000;
-					RedPixels[06][10] = 1'b0;
-					RedPixels[06][15] = 1'b0;
-					RedPixels[07][10] = 1'b0;
-					RedPixels[07][15] = 1'b0;
-					RedPixels[08][10] = 1'b0;
-					RedPixels[08][15] = 1'b0;
-					RedPixels[09][10] = 1'b0;
-					RedPixels[09][15] = 1'b0;
-					RedPixels[06][06] = 1'b1;
-					RedPixels[06][11] = 1'b1;
-					RedPixels[07][06] = 1'b1;
-					RedPixels[07][11] = 1'b1;
-					RedPixels[08][06] = 1'b1;
-					RedPixels[08][11] = 1'b1;
-					RedPixels[09][06] = 1'b1;
-					RedPixels[09][11] = 1'b1;
-					RedPixels[10] = 16'b0000111111000000;
+					RedPixels[05] = 16'b0000011111100000;
+					RedPixels[01][10] = 1'b0;
+					RedPixels[01][15] = 1'b0;
+					RedPixels[02][10] = 1'b0;
+					RedPixels[02][15] = 1'b0;
+					RedPixels[03][10] = 1'b0;
+					RedPixels[03][15] = 1'b0;
+					RedPixels[04][10] = 1'b0;
+					RedPixels[04][15] = 1'b0;
+					RedPixels[06][05] = 1'b1;
+					RedPixels[06][10] = 1'b1;
+					RedPixels[07][05] = 1'b1;
+					RedPixels[07][10] = 1'b1;
+					RedPixels[08][05] = 1'b1;
+					RedPixels[08][10] = 1'b1;
+					RedPixels[09][05] = 1'b1;
+					RedPixels[09][10] = 1'b1;
+					RedPixels[10] = 16'b0000011111100000;
 				end
 
 			C5: begin
 					RedPixels[05] = 16'b0000000000111111;
-					RedPixels[06][06] = 1'b0;
-					RedPixels[06][11] = 1'b0;
-					RedPixels[07][06] = 1'b0;
-					RedPixels[07][11] = 1'b0;
-					RedPixels[08][06] = 1'b0;
-					RedPixels[08][11] = 1'b0;
-					RedPixels[09][06] = 1'b0;
-					RedPixels[09][11] = 1'b0;
+					RedPixels[06][05] = 1'b0;
+					RedPixels[06][10] = 1'b0;
+					RedPixels[07][05] = 1'b0;
+					RedPixels[07][10] = 1'b0;
+					RedPixels[08][05] = 1'b0;
+					RedPixels[08][10] = 1'b0;
+					RedPixels[09][05] = 1'b0;
+					RedPixels[09][10] = 1'b0;
 					RedPixels[06][00] = 1'b1;
 					RedPixels[06][05] = 1'b1;
 					RedPixels[07][00] = 1'b1;
@@ -258,37 +259,37 @@ module cellSelector (
 				end
 
 			C7: begin
-					RedPixels[10] = 16'b0000111111000000;
-					RedPixels[11][10] = 1'b0;
-					RedPixels[11][15] = 1'b0;
-					RedPixels[12][10] = 1'b0;
-					RedPixels[12][15] = 1'b0;
-					RedPixels[13][10] = 1'b0;
-					RedPixels[13][15] = 1'b0;
-					RedPixels[14][10] = 1'b0;
-					RedPixels[14][15] = 1'b0;
-					RedPixels[11][06] = 1'b1;
-					RedPixels[11][11] = 1'b1;
-					RedPixels[12][06] = 1'b1;
-					RedPixels[12][11] = 1'b1;
-					RedPixels[13][06] = 1'b1;
-					RedPixels[13][11] = 1'b1;
-					RedPixels[14][06] = 1'b1;
-					RedPixels[14][11] = 1'b1;
-					RedPixels[15] = 16'b0000111111000000;
+					RedPixels[10] = 16'b0000011111100000;
+					RedPixels[01][10] = 1'b0;
+					RedPixels[01][15] = 1'b0;
+					RedPixels[02][10] = 1'b0;
+					RedPixels[02][15] = 1'b0;
+					RedPixels[03][10] = 1'b0;
+					RedPixels[03][15] = 1'b0;
+					RedPixels[04][10] = 1'b0;
+					RedPixels[04][15] = 1'b0;
+					RedPixels[11][05] = 1'b1;
+					RedPixels[11][10] = 1'b1;
+					RedPixels[12][05] = 1'b1;
+					RedPixels[12][10] = 1'b1;
+					RedPixels[13][05] = 1'b1;
+					RedPixels[13][10] = 1'b1;
+					RedPixels[14][05] = 1'b1;
+					RedPixels[14][10] = 1'b1;
+					RedPixels[15] = 16'b0000011111100000;
 				end
 
 			C8: begin
 					RedPixels[10] = 16'b0000000000111111;
-					RedPixels[11][06] = 1'b0;
-					RedPixels[11][11] = 1'b0;
-					RedPixels[12][06] = 1'b0;
-					RedPixels[12][11] = 1'b0;
-					RedPixels[13][06] = 1'b0;
-					RedPixels[13][11] = 1'b0;
-					RedPixels[14][06] = 1'b0;
-					RedPixels[14][11] = 1'b0;
-					RedPixels[11][00] = 1'b1;
+					RedPixels[11][05] = 1'b0;
+					RedPixels[11][10] = 1'b0;
+					RedPixels[12][05] = 1'b0;
+					RedPixels[12][10] = 1'b0;
+					RedPixels[13][05] = 1'b0;
+					RedPixels[13][10] = 1'b0;
+					RedPixels[14][05] = 1'b0;
+					RedPixels[14][10] = 1'b0;
+					RedPixels[11][00] = 1'b0;
 					RedPixels[11][05] = 1'b1;
 					RedPixels[12][00] = 1'b1;
 					RedPixels[12][05] = 1'b1;
