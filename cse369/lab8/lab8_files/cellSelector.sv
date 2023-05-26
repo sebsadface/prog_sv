@@ -1,7 +1,7 @@
 module cellSelector(
 	input logic clk, reset, 
 	input logic [8:0][1:0] currentGame,
-	input logic [15:0][15:0] RedIntermediate;
+	input logic [15:0][15:0] RedIntermediate,
 	output logic [15:0][15:0] RedPixels
 );
 	
