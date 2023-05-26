@@ -32,6 +32,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 	    ================================================================== */
 	 logic [15:0][15:0]RedPixels; // 16 x 16 array representing red LEDs
      logic [15:0][15:0]GrnPixels; // 16 x 16 array representing green LEDs
+	 logic [15:0][15:0]RedIntermediate;
 	 logic RST, next, select, currentPlayer;                  
 	 logic [8:0][1:0] currentGame;
 	 logic [3:0] currentCell;
@@ -55,7 +56,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 
 	playerSwitcher ps (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer);
 	
-	cellSwitcher cswitch (.clk(SYSTEM_CLOCK), .reset(RST), .next, .RedPixels, .currentCell);
+	cellSwitcher cswitch (.clk(SYSTEM_CLOCK), .reset(RST), .next, .RedIntermediate, .currentCell);
 
 	cells c0 (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0000), .cellInfo(currentGame[0]));
 	cells c1 (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0001), .cellInfo(currentGame[1]));
@@ -67,6 +68,6 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 	cells c7 (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0111), .cellInfo(currentGame[7]));
 	cells c8 (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b1000), .cellInfo(currentGame[8]));
 
-	cellSelector cselect (.clk(SYSTEM_CLOCK), .reset(RST), .currentGame, .RedPixels);
+	cellSelector cselect (.clk(SYSTEM_CLOCK), .reset(RST), .currentGame, .RedIntermediate .RedPixels);
 
 endmodule
