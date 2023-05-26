@@ -196,14 +196,14 @@ module cellSelector (
 
 			C4: begin
 					RedPixels[05] = 16'b0000011111100000;
-					RedPixels[01][10] = 1'b0;
-					RedPixels[01][15] = 1'b0;
-					RedPixels[02][10] = 1'b0;
-					RedPixels[02][15] = 1'b0;
-					RedPixels[03][10] = 1'b0;
-					RedPixels[03][15] = 1'b0;
-					RedPixels[04][10] = 1'b0;
-					RedPixels[04][15] = 1'b0;
+					RedPixels[06][10] = 1'b0;
+					RedPixels[06][15] = 1'b0;
+					RedPixels[07][10] = 1'b0;
+					RedPixels[07][15] = 1'b0;
+					RedPixels[08][10] = 1'b0;
+					RedPixels[08][15] = 1'b0;
+					RedPixels[09][10] = 1'b0;
+					RedPixels[09][15] = 1'b0;
 					RedPixels[06][05] = 1'b1;
 					RedPixels[06][10] = 1'b1;
 					RedPixels[07][05] = 1'b1;
@@ -260,14 +260,14 @@ module cellSelector (
 
 			C7: begin
 					RedPixels[10] = 16'b0000011111100000;
-					RedPixels[01][10] = 1'b0;
-					RedPixels[01][15] = 1'b0;
-					RedPixels[02][10] = 1'b0;
-					RedPixels[02][15] = 1'b0;
-					RedPixels[03][10] = 1'b0;
-					RedPixels[03][15] = 1'b0;
-					RedPixels[04][10] = 1'b0;
-					RedPixels[04][15] = 1'b0;
+					RedPixels[11][10] = 1'b0;
+					RedPixels[11][15] = 1'b0;
+					RedPixels[12][10] = 1'b0;
+					RedPixels[12][15] = 1'b0;
+					RedPixels[13][10] = 1'b0;
+					RedPixels[13][15] = 1'b0;
+					RedPixels[14][10] = 1'b0;
+					RedPixels[14][15] = 1'b0;
 					RedPixels[11][05] = 1'b1;
 					RedPixels[11][10] = 1'b1;
 					RedPixels[12][05] = 1'b1;
@@ -289,7 +289,7 @@ module cellSelector (
 					RedPixels[13][10] = 1'b0;
 					RedPixels[14][05] = 1'b0;
 					RedPixels[14][10] = 1'b0;
-					RedPixels[11][00] = 1'b0;
+
 					RedPixels[11][05] = 1'b1;
 					RedPixels[12][00] = 1'b1;
 					RedPixels[12][05] = 1'b1;
