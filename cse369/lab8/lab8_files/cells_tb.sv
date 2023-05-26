@@ -1,27 +1,3 @@
-module cell_module(clock, reset, player, select, out);
-	input logic clock, reset, player, select;  //player 0 = X, player 1 = O
-	output logic [1:0] out;
-	enum {x, o, none} ps, ns;
-
-	always_comb
-		case(ps)
-			none: if (!player & select) ns = x;
-					else if (player & select) ns = o;
-					else ns = none;
-			x: ns = x;
-			o: ns = o;
-			default: ns = none;
-		endcase
-		
-		assign out = {ps == o, ps == x};
-	
-	always_ff @(posedge clock)
-		if (reset)
-			ps <= none;
-		else 
-			ps <= ns;
-endmodule
-
 module cell_module_testbench();
 	logic clock, reset, player, select;
 	logic [1:0] row, col;

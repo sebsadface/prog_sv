@@ -31,10 +31,10 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 	 /* Set up LED board driver
 	    ================================================================== */
 	 logic [15:0][15:0]RedPixels; // 16 x 16 array representing red LEDs
-    logic [15:0][15:0]GrnPixels; // 16 x 16 array representing green LEDs
+     logic [15:0][15:0]GrnPixels; // 16 x 16 array representing green LEDs
 	 logic RST, next, select, currentPlayer;                  
-//	 logic [1:0] one,two,three,four,five,size,seven,eight,nine;
-	 logic [3:0] selectedCell;
+	 logic [8:0][1:0] currentGame;
+	 logic [3:0] currentCell;
 	 assign RST = SW[9];
 	 
 	 /* Standard LED Driver instantiation - set once and 'forget it'. 
@@ -50,12 +50,22 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
 
 	user_input_handler sl (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[0]), .out(select));
 	user_input_handler nx (.clk(SYSTEM_CLOCK), .reset(RST), .in(~KEY[1]), .out(next));
+
+	cells c0 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0000), .cellInfo(currentGame[0]));
+	cells c1 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0001), .cellInfo(currentGame[1]));
+	cells c2 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0010), .cellInfo(currentGame[2]));
+	cells c3 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0011), .cellInfo(currentGame[3]));
+	cells c4 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0100), .cellInfo(currentGame[4]));
+	cells c5 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0101), .cellInfo(currentGame[5]));
+	cells c6 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0110), .cellInfo(currentGame[6]));
+	cells c7 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b0111), .cellInfo(currentGame[7]));
+	cells c8 (.clk .reset(RST), .select, .currentPlayer, .currentCell, .thisCell(4'b1000), .cellInfo(currentGame[8]));
 	
 	emptyBoard board (.GrnPixels);
 
 	playerSwitcher ps (.clk(SYSTEM_CLOCK), .reset(RST), .select, .currentPlayer);
 	
-	cellSelector cs (.clk(SYSTEM_CLOCK), .reset(RST), .next, .RedPixels, .selectedCell);
-	//led_controller lc(.clock(SYSTEM_CLOCK), .number(selectedCell), .player(currentPlayer), .select, .RedPixels, .reset(RST), .leds(HEX0));
+	cellSwitcher cswitch (.clk(SYSTEM_CLOCK), .reset(RST), .next, .RedPixels, .currentCell);
+	cellSelector cselect (.clk(SYSTEM_CLOCK), .reset(RST), .currentGame, .RedPixels);
 
 endmodule

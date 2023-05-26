@@ -1,10 +1,10 @@
-module cellSelector_tb();
+module cellSwitcher_tb();
 	logic clk, reset, next;
 	logic [15:0][15:0] GrnPixels;
 	logic [15:0][15:0] RedPixels;
     logic [3:0] selectedCell;
 
-	cellSelector dut(.clk, .reset, .next, .GrnPixels, .RedPixels, .selectedCell);
+	cellSwitcher dut(.clk, .reset, .next, .GrnPixels, .RedPixels, .selectedCell);
 	
 	parameter CLOCK_PERIOD=100;
 	initial begin
@@ -23,4 +23,4 @@ module cellSelector_tb();
 		end
 		$stop;
 	end
-endmodule // cellSelector_tb
+endmodule // cellSwitcher_tb
