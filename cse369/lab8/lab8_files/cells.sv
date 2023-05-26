@@ -1,5 +1,6 @@
 module cells(
-	input logic clk, reset, select, currentPlayer, currentCell, thisCell,  
+	input logic clk, reset, select, currentPlayer, 
+	input logic [3:0] thisCell, currentCell, 
 	output logic [1:0] cellInfo
 );
 
