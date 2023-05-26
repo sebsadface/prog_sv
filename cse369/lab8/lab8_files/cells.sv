@@ -16,8 +16,7 @@ module cells(
 			default:                                                             ns = ps;
 		endcase
 		
-		assign cellInfo[0] = (ps == X);
-		assign cellInfo[1] = (ps == O);
+		assign cellInfo = ps;
 	
 	always_ff @(posedge clk)
 		if (reset)
