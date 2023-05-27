@@ -250,6 +250,7 @@ module cellSelector(
 					RedPixels[12][09:05] = RedIntermediate[12][09:05] | 5'b10010;
 					RedPixels[13][09:05] = RedIntermediate[13][09:05] | 5'b10010;
 					RedPixels[14][09:05] = RedIntermediate[14][09:05] | 5'b01100;
+					RedPixels[15][09:05] = RedIntermediate[15][09:05] | 5'b00000;
 				end
 				default: begin
 					RedPixels[11][09:05] = RedIntermediate[11][09:05] | 5'b00000;
