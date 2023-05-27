@@ -12,7 +12,6 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR, GPIO_1, CLOCK
     assign HEX2 = '1;
     assign HEX3 = '1;
     assign HEX4 = '1;
-    assign HEX5 = '1;
 	 
 	 
 	 /* Set up system base clock to 1526 Hz (50 MHz / 2**(14+1))
