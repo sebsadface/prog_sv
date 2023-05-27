@@ -30,8 +30,8 @@ module victory (
 											 (currentGame[5][1] & currentGame[2][1]))));
  	end
 
-   edge_detector edgeX (.clk, .reset, .in(countX), .out(singleX));
-   edge_detector edgeO (.clk, .reset, .in(countO), .out(singleO));
+  edge_detector edgeX (.clk, .reset, .in(countX), .out(singleX));
+  edge_detector edgeO (.clk, .reset, .in(countO), .out(singleO));
 
   counter X (.clk, .reset, .count(singleX), .out(countsX));
   counter O (.clk, .reset, .count(singleO), .out(countsO));
