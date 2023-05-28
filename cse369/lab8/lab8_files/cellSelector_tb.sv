@@ -1,14 +1,13 @@
 module cellSelector_tb();
-    logic clk, reset;
+    logic reset;
     logic [8:0][1:0] currentGame;
     logic [15:0][15:0] RedIntermediate;
     logic [15:0][15:0] RedPixels;
 
 
-    cellSelector dut (.clk, .reset, .currentGame, .RedIntermediate, .RedPixels); 
+    cellSelector dut (.reset, .currentGame, .RedIntermediate, .RedPixels); 
 
     initial begin
-        clk = 0;
         reset = 1;
         currentGame = 0;
         RedIntermediate = 0;
