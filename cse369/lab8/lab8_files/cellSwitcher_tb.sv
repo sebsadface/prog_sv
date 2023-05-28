@@ -1,7 +1,7 @@
 module cellSwitcher_tb();
 	logic clk, reset, next;
 	logic [15:0][15:0] RedIntermediate;
-    logic [3:0] currentCell
+    logic [3:0] currentCell;
 
 	cellSwitcher dut(.clk, .reset, .next, .RedIntermediate, .currentCell);
 	
