@@ -14,40 +14,22 @@ module playerSwitcher_tb();
 	
 	integer i;
 	initial begin
-		clk <= 0;
-        reset <= 1;
+		reset <= 1;
         select <= 0;
-        currentGame <= '{9{2'b00}};
-        currentCell <= 0;
-        currentPlayer <= 0;
-
-        reset <= 0; @(posedge clk); 
-
-         select <= 1; @(posedge clk); 
-         select <= 0; @(posedge clk); 
-
-    
-         select <= 1; currentGame[0] = 2'b01; @(posedge clk); 
-         select <= 0; @(posedge clk); 
-
-        
-         select <= 1; currentGame[0] = 2'b00; @(posedge clk); 
-         select <= 0; @(posedge clk); 
-
-         currentCell <= 8; select <= 1; currentGame[3] = 2'b01; @(posedge clk);         
-         select <= 0; @(posedge clk); 
-
-       
-         currentCell <= 3; select <= 1; currentGame[3] = 2'b01; @(posedge clk);         
-         select <= 0; @(posedge clk); 
-
-        
-         currentCell <= 3; select <= 1; currentGame[3] = 2'b01; @(posedge clk);         
-         select <= 0; @(posedge clk); 
-
-         currentCell <= 3; select <= 1; currentGame[3] = 2'b10; @(posedge clk);         
-         select <= 0; @(posedge clk); 
-         
+        currentCell <= 4'b0000;
+        for(int i<=0; i<9; i<=i+1) currentGame[i] <= 2'b00;
+         @(posedge clk);
+        reset <= 0;
+         @(posedge clk);
+        select <= 1;
+         @(posedge clk);
+        for(int i<=0; i<9; i<=i+1) begin
+            currentCell <= i;
+             @(posedge clk);
+            if(i%2 == 0) currentGame[i] <= 2'b01;
+            else currentGame[i] <= 2'b10;
+             @(posedge clk);
+        end
 		$stop;
 	end
 
