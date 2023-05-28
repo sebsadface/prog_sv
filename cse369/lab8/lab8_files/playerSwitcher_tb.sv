@@ -4,7 +4,7 @@ module playerSwitcher_tb();
     logic [3:0] currentCell;
     logic currentPlayer;
 
-	cellSwitcher dut(.clk, .reset, .select, .currentGame, .currentCell, .currentPlayer);
+	playerSwitcher dut(.clk, .reset, .select, .currentGame, .currentCell, .currentPlayer);
 	
 	parameter CLOCK_PERIOD=100;
 	initial begin
