@@ -13,7 +13,7 @@ module cellSwitcher_tb();
 	
 	integer i;
 	initial begin
-		reset <= 1;                     @(posedge clk); 
+		reset <= 1; next <= 0;          @(posedge clk); 
 		reset <= 0;                     @(posedge clk); 
 
 		for (i = 0; i < 10; i++) begin
