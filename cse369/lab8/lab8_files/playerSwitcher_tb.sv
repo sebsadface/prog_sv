@@ -23,36 +23,29 @@ module playerSwitcher_tb();
 
         reset <= 0; @(posedge clk); 
 
-        // Test 1: Switch to player 1
          select <= 1; @(posedge clk); 
          select <= 0; @(posedge clk); 
 
-        // Test 2: Switch to player 2
-         select <= 1; @(posedge clk); 
+    
+         select <= 1; currentGame[0] = 2'b01; @(posedge clk); 
          select <= 0; @(posedge clk); 
 
-        // Test 3: Switch to player 1 again
-         select <= 1; @(posedge clk); 
+        
+         select <= 1; currentGame[0] = 2'b00; @(posedge clk); 
          select <= 0; @(posedge clk); 
 
-        // Test 4: Switch to player 2 again
-         select <= 1; @(posedge clk); 
-         select <= 0; @(posedge clk);
-
-        // Test 5: Switch to player 1 after a cell change
-         currentCell <= 1; @(posedge clk); 
-         select <= 1; @(posedge clk); 
+         currentCell <= 8; select <= 1; currentGame[3] = 2'b01; @(posedge clk);         
          select <= 0; @(posedge clk); 
 
-        // Test 6: Switch to player 2 after a game change
-         currentGame[0] <= 2'b01; @(posedge clk); 
-         select <= 1; @(posedge clk); 
+       
+         currentCell <= 3; select <= 1; currentGame[3] = 2'b01; @(posedge clk);         
          select <= 0; @(posedge clk); 
 
-        // Test 7: Switch to player 1 after a game and cell change
-         currentCell <= 2; @(posedge clk); 
-         currentGame[0] <= 2'b00; @(posedge clk); 
-         select <= 1; @(posedge clk); 
+        
+         currentCell <= 3; select <= 1; currentGame[3] = 2'b01; @(posedge clk);         
+         select <= 0; @(posedge clk); 
+
+         currentCell <= 3; select <= 1; currentGame[3] = 2'b10; @(posedge clk);         
          select <= 0; @(posedge clk); 
          
 		$stop;
