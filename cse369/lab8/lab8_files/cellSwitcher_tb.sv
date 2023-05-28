@@ -1,10 +1,9 @@
 module cellSwitcher_tb();
 	logic clk, reset, next;
-	logic [15:0][15:0] GrnPixels;
-	logic [15:0][15:0] RedPixels;
-    logic [3:0] selectedCell;
+	logic [15:0][15:0] RedIntermediate;
+    logic [3:0] currentCell
 
-	cellSwitcher dut(.clk, .reset, .next, .GrnPixels, .RedPixels, .selectedCell);
+	cellSwitcher dut(.clk, .reset, .next, .RedIntermediate, .currentCell);
 	
 	parameter CLOCK_PERIOD=100;
 	initial begin
