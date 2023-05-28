@@ -17,13 +17,13 @@ module playerSwitcher_tb();
 		reset <= 1;
         select <= 0;
         currentCell <= 4'b0000;
-        for(int i<=0; i<9; i<=i+1) currentGame[i] <= 2'b00;
+        for(int i=0; i<9; i=i+1) currentGame[i] <= 2'b00;
          @(posedge clk);
         reset <= 0;
          @(posedge clk);
         select <= 1;
          @(posedge clk);
-        for(int i<=0; i<9; i<=i+1) begin
+        for(int i=0; i<9; i=i+1) begin
             currentCell <= i;
              @(posedge clk);
             if(i%2 == 0) currentGame[i] <= 2'b01;
