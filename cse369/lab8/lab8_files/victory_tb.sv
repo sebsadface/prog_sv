@@ -1,4 +1,4 @@
-module testbench();
+module victory_tb();
     logic clk, reset;
     logic [8:0][1:0] currentGame;
     logic [6:0] ledsX, ledsO;
