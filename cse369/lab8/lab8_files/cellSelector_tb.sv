@@ -20,7 +20,7 @@ module cellSelector_tb();
         for (integer i = 0; i < 9; i++) begin
             for (integer j = 0; j < 3; j++) begin
                 currentGame[i] = j;
-                #10;
+                #30;
             end
         end
 
