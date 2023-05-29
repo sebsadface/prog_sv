@@ -8,6 +8,7 @@ vlog "./victory.sv"
 vlog "./victory_tb.sv"
 vlog "./counter.sv"
 vlog "./seg7.sv"
+vlog "./edge_detector.sv"
 
 # Call vsim to invoke simulator
 #     Make sure the last item on the line is the name of the
